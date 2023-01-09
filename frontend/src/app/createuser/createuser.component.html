@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<section class="register-block">
+   <div class="container">
+      <div class="row ">
+         <div class="col register-sec">
+            <h2 class="text-center">Create User Profile</h2>
+            <form class="register-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()">
+               <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-uppercase">Address</label>
+                  <textarea type="text" class="form-control" name="address" id="" [(ngModel)]="formdata.address"
+                     #name="ngModel" required maxlength="100"></textarea>
+                  <span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+                     Address is required.
+                  </span>
+               </div>
+               <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-uppercase">Phone Number</label>
+
+                  <input type="number" class="form-control" maxlength="10" name="phone_number" id=""
+                     [(ngModel)]="formdata.phone_number" #name="ngModel" required>
+                  <span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+                     Phone Number
+                  </span>
+               </div>
+               <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-uppercase">Qualification</label>
+
+                  <input type="text" class="form-control" name="qualification" id=""
+                     [(ngModel)]="formdata.qualification" #email="ngModel" required>
+                  <span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+                     Qualification is required.
+                  </span>
+               </div>
+               <div class="form-group">
+
+                  <!-- <span class="text-danger" *ngIf="this.errorMessage" >
+                   <p [innerText]="this.errorMessage"></p>
+                </span>
+                <div  class="text-center" *ngIf="this.loading">
+                  <div class="spinner-border text-primary " role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div> -->
+                  <input type="submit" class="btn btn-login float-right" value="Create Profile" (click)="submit=true">
+                  <a class="btn btn-primary" href="javascript:;" routerLink="/userlist">User list</a>
+               </div>
+               <div class="clearfix"></div>
+             
+            </form>
+
+
+         </div>
+
+      </div>
+
+
+   </div>
+</section>
